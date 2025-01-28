@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using WebAPI.Data;
+using WebAPI.DTO.Autor;
 using WebAPI.Models;
 
 namespace WebAPI.Services.Autor
@@ -69,6 +70,33 @@ namespace WebAPI.Services.Autor
                 return resposta;
             }
 
+        }
+
+        public async Task<ResponseModel<List<AutorModel>>> CriarAutor(AutorDTO autorDto)
+        {
+
+            ResponseModel<List<AutorModel>> resposta = new ResponseModel<List<AutorModel>>();
+            try
+            {
+                var autor =  new AutorModel()
+                {
+                    Nome = autorDto.Nome,
+                    Sobrenome = autorDto.Sobrenome
+                };
+
+                _context.Add(autor);
+                await _context.SaveChangesAsync();
+                resposta.Dados = await _context.Autores.ToListAsync();
+                resposta.Mensagem = "Autor criado com sucesso";
+                return resposta;
+
+            }catch (Exception ex)
+            {
+                resposta.Mensagem= ex.Message;
+                resposta.Status = false;
+                return resposta;
+            }
+               
         }
 
         public async Task<ResponseModel<List<AutorModel>>> ListarAutores()

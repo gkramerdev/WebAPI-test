@@ -53,6 +53,32 @@
   },
   {
     "ContainingType": "WebAPI.Controllers.AutorController",
+    "Method": "CriarAutor",
+    "RelativePath": "api/Autor/CriarAutor",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "autorDTO",
+        "Type": "WebAPI.DTO.Autor.AutorDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "WebAPI.Models.ResponseModel\u00601[[WebAPI.Models.AutorModel, WebAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "WebAPI.Controllers.AutorController",
     "Method": "ListarAutores",
     "RelativePath": "api/Autor/ListarAutores",
     "HttpMethod": "GET",
