@@ -140,3 +140,4 @@ C:\ws-csharp\WebAPI\WebAPI\obj\Debug\net8.0\WebAPI.genruntimeconfig.cache
 C:\ws-csharp\WebAPI\WebAPI\obj\Debug\net8.0\ref\WebAPI.dll
 C:\ws-csharp\WebAPI\WebAPI\bin\Debug\net8.0\Npgsql.dll
 C:\ws-csharp\WebAPI\WebAPI\bin\Debug\net8.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll
+C:\ws-csharp\WebAPI\WebAPI\obj\Debug\net8.0\WebAPI.sourcelink.json

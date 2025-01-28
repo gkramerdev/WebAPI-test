@@ -1,6 +1,6 @@
 ﻿namespace WebAPI.Models
 {
-    public class RespondeModel<T>
+    public class ResponseModel<T>
 
     {
         public T? Dados { get; set; }
