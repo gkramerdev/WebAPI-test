@@ -10,6 +10,9 @@ namespace WebAPI.Services.Autor
         Task<ResponseModel<AutorModel>> BuscarAutorPorIdLivro(int idLivro);
         Task<ResponseModel<List<AutorModel>>> CriarAutor(AutorDTO autorDto);
 
+        Task<ResponseModel<List<AutorModel>>> EditarAutor(AutorEditDTO autorEditDTO);
+
+        Task<ResponseModel<List<AutorModel>>>  ExcluirAutor(int idAutor);
 
         
 

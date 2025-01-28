@@ -99,6 +99,72 @@ namespace WebAPI.Services.Autor
                
         }
 
+        public async Task<ResponseModel<List<AutorModel>>> EditarAutor(AutorEditDTO autorEditDTO)
+        {
+            ResponseModel < List < AutorModel >> resposta = new ResponseModel<List<AutorModel>>();
+
+            try
+            {
+                var autor = await _context.Autores
+                    .FirstOrDefaultAsync(autorBanco => autorBanco.Id ==  autorEditDTO.Id);
+                if(autor == null)
+                {
+                    resposta.Mensagem = "Nenhum autor encontrado";
+                    return resposta;
+
+                }
+                autor.Nome= autorEditDTO.Nome;
+                autor.Sobrenome = autorEditDTO.Sobrenome;
+                _context.Update(autor);
+                await _context.SaveChangesAsync();
+                resposta.Dados = await _context.Autores.ToListAsync();
+                resposta.Mensagem = "Autor editado com sucesso";
+                return resposta;
+
+
+
+
+            }catch (Exception ex)
+            {
+                resposta.Mensagem = ex.Message;
+                resposta.Status = false;
+                return resposta;
+            }
+        }
+
+        public async Task<ResponseModel<List<AutorModel>>> ExcluirAutor(int idAutor)
+        {
+            ResponseModel < List < AutorModel >> resposta = new ResponseModel<List<AutorModel>>();
+
+            try
+            {
+                var autor = await _context.Autores
+                    .FirstOrDefaultAsync(autorBanco => autorBanco.Id == idAutor);
+                if(autor == null)
+                {
+                    resposta.Mensagem = "Nenhum autor encontrado";
+                    return resposta;
+                }
+                _context.Remove(autor);
+                await _context.SaveChangesAsync();
+                resposta.Dados = await _context.Autores.ToListAsync();
+                resposta.Mensagem = "Autor removido com sucesso";
+                return resposta;
+
+
+
+            }
+            catch (Exception ex)
+            {
+                resposta.Mensagem = ex.Message;
+                resposta.Status = false;
+                return resposta;
+
+            }
+
+        }
+
+
         public async Task<ResponseModel<List<AutorModel>>> ListarAutores()
         {
 

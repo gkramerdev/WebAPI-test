@@ -40,12 +40,25 @@ namespace WebAPI.Controllers
         }
 
         [HttpPost("CriarAutor")]
-        public async Task<ActionResult<ResponseModel<AutorModel>>> CriarAutor(AutorDTO autorDTO)
+        public async Task<ActionResult<ResponseModel<List<AutorModel>>>> CriarAutor(AutorDTO autorDTO)
         {
             var autores = await _autorInterface.CriarAutor(autorDTO);
             return Ok(autores);
         }
 
+        [HttpPut("EditarAutor")]
+        public async Task<ActionResult<ResponseModel<List<AutorModel>>>> EditarAutor(AutorEditDTO autorDTO)
+        {
+            var autor = await _autorInterface.EditarAutor(autorDTO);
+            return Ok(autor);
+        }
+
+        [HttpDelete("ExcluirAutor")]
+        public async Task<ActionResult<ResponseModel<List<AutorModel>>>> ExcluirAutor(int autorId)
+        {
+            var autor = await _autorInterface.ExcluirAutor(autorId);
+            return Ok(autor);
+        }
     }
 }
   
