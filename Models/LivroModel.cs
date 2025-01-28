@@ -8,7 +8,7 @@ namespace WebAPI.Models
 
         public string Titulo { get; set; }
 
-        [JsonIgnore]
+       
         public AutorModel Autor { get; set; }   
     }
 }

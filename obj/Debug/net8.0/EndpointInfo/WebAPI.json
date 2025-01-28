@@ -131,13 +131,6 @@
           "sobrenome": {
             "type": "string",
             "nullable": true
-          },
-          "livros": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/LivroModel"
-            },
-            "nullable": true
           }
         },
         "additionalProperties": false
@@ -174,20 +167,6 @@
           },
           "status": {
             "type": "boolean"
-          }
-        },
-        "additionalProperties": false
-      },
-      "LivroModel": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "titulo": {
-            "type": "string",
-            "nullable": true
           }
         },
         "additionalProperties": false

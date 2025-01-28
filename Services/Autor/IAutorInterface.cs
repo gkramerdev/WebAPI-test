@@ -8,6 +8,7 @@ namespace WebAPI.Services.Autor
         Task<ResponseModel<AutorModel>> BuscaAutorId(int idAutor);
         Task<ResponseModel<AutorModel>> BuscarAutorPorIdLivro(int idLivro);
 
+        
 
     }
 }
